@@ -10,10 +10,10 @@ class Day1 {
      public static void main(String[] args) throws IOException {
 
 
-        ArrayList<String> sClm = filter();
+        ArrayList<String> filteredString = filter();
 
         int i = 0;
-        for (String str : sClm) {
+        for (String str : filteredString) {
             i = i + toInt(firstLastDigid(str));
         }
         System.out.println("Result: " + i);
@@ -31,9 +31,9 @@ class Day1 {
     }
 
     public static ArrayList<String> filter() throws IOException {
-        ArrayList<String> clb = readFile();
-        ArrayList<String> sClm = new ArrayList<>();
-        for(String s : clb) {
+        ArrayList<String> fileContent = readFile();
+        ArrayList<String> filteredString = new ArrayList<>();
+        for(String s : fileContent) {
 
             String string  = "";
             for (int i = 0; i < s.split("").length; i++) {
@@ -43,23 +43,23 @@ class Day1 {
                     string = string + ch;
                 }
             }
-            sClm.add(string);
+            filteredString.add(string);
         }
-        return sClm;
+        return filteredString;
     }
 
     public static ArrayList<String> readFile() throws IOException {
-        File file = new File("C:\\Users\\31644\\Documents\\Software code\\JAVA\\AdvantOfCode2023\\dayone\\src\\calibration_document.txt");    //creates a new file instance
-        FileReader fr = new FileReader(file);   //reads the file
-        BufferedReader br = new BufferedReader(fr);  //creates a buffering character input stream//constructs a string buffer with no characters
-        ArrayList<String> clb = new ArrayList<>();
+        File file = new File("C:\\Users\\31644\\Documents\\Software code\\JAVA\\AdvantOfCode2023\\dayone\\src\\calibration_document.txt");   
+        FileReader fr = new FileReader(file); 
+        BufferedReader br = new BufferedReader(fr); 
+        ArrayList<String> fileContent = new ArrayList<>();
         String line;
         while((line=br.readLine())!=null)
         {
-            clb.add(line);
+            fileContent.add(line);
         }
 
         fr.close();
-        return clb;
+        return fileContent;
     }
 }
