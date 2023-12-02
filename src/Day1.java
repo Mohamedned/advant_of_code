@@ -4,12 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 class Day1 {
      public static void main(String[] args) throws IOException {
-
-
         ArrayList<String> filteredString = filter();
 
         int i = 0;
@@ -19,18 +19,18 @@ class Day1 {
         System.out.println("Result: " + i);
     }
 
-    public static int toInt(String s) {
+    private static int toInt(String s) {
         return Integer.parseInt(s);
     }
 
-    public static String firstLastDigid(String s) {
+    private static String firstLastDigid(String s) {
         int n = s.length();
         char first = s.charAt(0);
         char last = s.charAt(n - 1);
         return first + "" + last;
     }
 
-    public static ArrayList<String> filter() throws IOException {
+    private static ArrayList<String> filter() throws IOException {
         ArrayList<String> fileContent = readFile();
         ArrayList<String> filteredString = new ArrayList<>();
         for(String s : fileContent) {
@@ -48,8 +48,10 @@ class Day1 {
         return filteredString;
     }
 
-    public static ArrayList<String> readFile() throws IOException {
-        File file = new File("C:\\Users\\31644\\Documents\\Software code\\JAVA\\AdvantOfCode2023\\dayone\\src\\calibration_document.txt");   
+    private static ArrayList<String> readFile() throws IOException {
+        Path currPath = Paths.get("");
+        String pathToTxtFile = currPath.toAbsolutePath().toString() + "\\advant_of_code\\resource\\calibration_document.txt";
+        File file = new File(pathToTxtFile);   
         FileReader fr = new FileReader(file); 
         BufferedReader br = new BufferedReader(fr); 
         ArrayList<String> fileContent = new ArrayList<>();
