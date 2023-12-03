@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-class Day1 {
+class Day1_partOne {
      public static void main(String[] args) throws IOException {
         ArrayList<String> filteredString = filter();
 
